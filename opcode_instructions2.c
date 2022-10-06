@@ -100,3 +100,4 @@ void _sub(stack_t **doubly, unsigned int cline)
 	aux->n -= (*doubly)->n;
 	_pop(doubly, cline);
 }
+
