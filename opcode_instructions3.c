@@ -1,4 +1,4 @@
-[2;2R[>77;30601;0c]10;rgb:f8f8/f8f8/f2f2]11;rgb:2828/2a2a/3636#include "monty.h"
+#include "monty.h"
 
 /**
  * _div - divides the second element by the top element of the stack
@@ -105,3 +105,45 @@ void _mod(stack_t **doubly, unsigned int cline)
  * _pchar - print the char value of the first element
  *
  * @doubly: head of the linked list
+ * @cline: line number;
+ * Return: no return
+ */
+void _pchar(stack_t **doubly, unsigned int cline)
+{
+	if (doubly == NULL || *doubly == NULL)
+	{
+		dprintf(2, "L%u: can't pchar, stack empty\n", cline);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	if ((*doubly)->n < 0 || (*doubly)->n >= 128)
+	{
+		dprintf(2, "L%u: can't pchar, value out of range\n", cline);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (*doubly)->n);
+}
+
+/**
+ * _pstr - prints the string of the stack
+ *
+ * @doubly: head of the linked list
+ * @cline: line number;
+ * Return: no return
+ */
+void _pstr(stack_t **doubly, unsigned int cline)
+{
+	stack_t *aux;
+	(void)cline;
+
+	aux = *doubly;
+
+	while (aux && aux->n > 0 && aux->n < 128)
+	{
+		printf("%c", aux->n);
+		aux = aux->next;
+	}
+
+	printf("\n");
+}
