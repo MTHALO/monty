@@ -16,7 +16,7 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO ALX
  */
 typedef struct stack_s
 {
@@ -101,3 +101,4 @@ void free_dlistint(stack_t *head);
 void free_vglo(void);
 
 #endif
+
